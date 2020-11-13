@@ -1,0 +1,17 @@
+
+<h2><%= @cocktail.name %></h2>
+
+  <% @doses.each do |dose| %>
+  <div class="container">
+    <p><%= dose.description %> of <%= dose.ingredient.name %>  <%= dose.cocktail.name %> </p> 
+  </div>
+  <% end %>
+
+
+<%= simple_form_for([@cocktail, @dose]) do |f| %>
+  <%= f.input :description %>
+  <%= f.association :ingredient %>
+  <%= f.submit %>
+<% end %>
+<%# input the reviews.each with doses %>
+
